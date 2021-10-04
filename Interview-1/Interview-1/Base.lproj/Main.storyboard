@@ -37,7 +37,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Pkg-gm-jMJ" kind="presentation" id="Xh9-xL-fVu"/>
+                                    <segue destination="Pkg-gm-jMJ" kind="presentation" id="NnH-Wj-xJc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,6 +80,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="numberTFChanged:" destination="Pkg-gm-jMJ" eventType="editingChanged" id="I38-9v-380"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6U-AU-sae">
                                 <rect key="frame" x="127" y="441" width="160" height="36"/>
@@ -92,7 +95,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UgS-XE-sNV" kind="presentation" id="eNd-Ai-5VD"/>
+                                    <segue destination="UgS-XE-sNV" kind="presentation" id="aqy-Dw-6Lz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -108,6 +111,10 @@
                             <constraint firstItem="b5b-Qj-rE7" firstAttribute="centerX" secondItem="lUe-h2-urs" secondAttribute="centerX" id="r7D-oE-ZAs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="NumberTF" destination="b5b-Qj-rE7" id="OHA-Ha-fqh"/>
+                        <outlet property="guessButton" destination="v6U-AU-sae" id="s3n-xA-hHy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sko-ld-MBE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,6 +145,9 @@
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="&gt;"/>
+                                        <connections>
+                                            <action selector="moreButton:" destination="UgS-XE-sNV" eventType="touchUpInside" id="BoH-cJ-lwM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0W-ax-clT">
                                         <rect key="frame" x="91.5" y="0.0" width="71" height="36"/>
@@ -145,7 +155,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="="/>
                                         <connections>
-                                            <segue destination="3gz-bt-9nd" kind="presentation" id="TgQ-Os-n1d"/>
+                                            <segue destination="3gz-bt-9nd" kind="presentation" id="2YR-B5-Hs5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuQ-ct-fa2">
@@ -153,19 +163,22 @@
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="&lt;"/>
+                                        <connections>
+                                            <action selector="lessButton:" destination="UgS-XE-sNV" eventType="touchUpInside" id="hry-zd-btf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aMv-pB-pvC">
                                 <rect key="frame" x="124.5" y="126" width="165.5" height="70.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round №" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLO-FV-BUF">
-                                        <rect key="frame" x="37" y="0.0" width="91" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Round № 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLO-FV-BUF">
+                                        <rect key="frame" x="29.5" y="0.0" width="106" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IF-93-jo8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Computer guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IF-93-jo8">
                                         <rect key="frame" x="0.0" y="46.5" width="165.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -191,6 +204,10 @@
                             <constraint firstItem="ZuD-uz-WwL" firstAttribute="leading" secondItem="Td6-BV-ePR" secondAttribute="leading" constant="80" id="zCq-7i-L1Y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="numberIs" destination="SnL-FI-baT" id="Qcm-Ke-O9m"/>
+                        <outlet property="rounds" destination="vLO-FV-BUF" id="IEm-Ir-JuD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icb-vd-JOm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,13 +224,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bC4-Wv-ZW6">
                                 <rect key="frame" x="152" y="126" width="110.5" height="70.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round №" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-KY-g6j">
-                                        <rect key="frame" x="9.5" y="0.0" width="91" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Round № 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-KY-g6j">
+                                        <rect key="frame" x="2" y="0.0" width="106" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y70-vs-ZNb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y70-vs-ZNb">
                                         <rect key="frame" x="0.0" y="46.5" width="110.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -253,7 +270,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="THH-es-g7r" kind="presentation" id="APg-Tg-L1I"/>
+                                    <segue destination="THH-es-g7r" kind="presentation" id="isM-Ry-kng"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -279,6 +296,7 @@
         <!--Fifth View Controller-->
         <scene sceneID="WD7-zo-msd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7oJ-YK-fOi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="THH-es-g7r" customClass="FifthViewController" customModule="Interview_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HDN-0W-oNB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -314,7 +332,6 @@
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7oJ-YK-fOi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2872" y="94"/>
         </scene>

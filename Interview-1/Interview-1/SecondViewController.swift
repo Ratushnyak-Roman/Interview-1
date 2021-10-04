@@ -12,8 +12,26 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        updateNumberTF ()
     }
     
-
+    private func updateNumberTF (){
+        let playerNumber = numberTF.text ?? ""
+        
+        guessButton.isEnabled = !playerNumber.isEmpty
+    }
+    
+    @IBOutlet weak var numberTF: UITextField!
+    
+    @IBOutlet weak var guessButton: UIButton!
+    
+    
+    @IBAction func numberTFChanged(_ sender: UITextField) {
+        updateNumberTF ()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dvc = segue.destination as? ThirdViewController else { return }
+        dvc.playerNumber = numberTF.text
+    }
 }
