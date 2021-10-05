@@ -11,22 +11,17 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         updateNumberTF ()
     }
     
     private func updateNumberTF (){
         let playerNumber = numberTF.text ?? ""
-        
         guessButton.isEnabled = !playerNumber.isEmpty
     }
     
 
     @IBOutlet weak var numberTF: UITextField!
-    
     @IBOutlet weak var guessButton: UIButton!
-    
-    
     
     @IBAction func guessButton(_ sender: UIButton) {
         let x = (numberTF.text! as NSString).integerValue

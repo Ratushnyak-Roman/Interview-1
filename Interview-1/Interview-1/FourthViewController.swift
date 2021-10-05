@@ -12,25 +12,39 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateNumberTF()
-        
     }
     
-    private func updateNumberTF() {
-        let playerNumber = numberTF.text ?? ""
-        
-        guessButton.isEnabled = !playerNumber.isEmpty
-    }
-
     var round = 1
     var number = Int.random(in: 0...100)
     var computerRounds = 0
-
     
     @IBOutlet weak var rounds: UILabel!
     @IBOutlet weak var numberIs: UILabel!
     @IBOutlet weak var guessButton: UIButton!
     @IBOutlet weak var numberTF: UITextField!
     
+    private func updateNumberTF() {
+        let playerNumber = numberTF.text ?? ""
+        guessButton.isEnabled = !playerNumber.isEmpty
+    }
+    
+    private func comparison () {
+        let playerNumber = (numberTF.text! as NSString).integerValue
+        let x = true
+        switch x {
+        case playerNumber < number:
+            numberIs.text = "Number is >"
+            round += 1
+        case playerNumber > number:
+            numberIs.text = "Number is <"
+            round += 1
+        case playerNumber == number:
+            numberIs.text = "Number is ="
+            guessButton.setTitle("Result", for: .normal)
+        default:
+            break
+        }
+    }
     
     @IBAction func numberTFChanged(_ sender: UITextField) {
         updateNumberTF ()
@@ -47,24 +61,6 @@ class FourthViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    func comparison () {
-        let playerNumber = (numberTF.text! as NSString).integerValue
-        let x = true
-        switch x {
-        case playerNumber < number:
-            numberIs.text = "Number is >"
-            round += 1
-        case playerNumber > number:
-            numberIs.text = "Number is <"
-            round += 1
-        case playerNumber == number:
-            numberIs.text = "Number is ="
-            guessButton.setTitle("Result", for: .normal)
-        default:
-            break
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

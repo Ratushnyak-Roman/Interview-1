@@ -20,18 +20,16 @@ class ThirdViewController: UIViewController {
     var max = 101
     var playerNumber: String?
     
+    @IBOutlet weak var rounds: UILabel!
+    @IBOutlet weak var numberIs: UILabel!
+    
     func antiCheat () -> Int{
         let x = playerNumber!
         let int = (x as NSString).integerValue
         return int
     }
     
-    @IBOutlet weak var rounds: UILabel!
-    @IBOutlet weak var numberIs: UILabel!
-    
-    
     @IBAction func moreButton(_ sender: UIButton) {
-        
         guard antiCheat() > number else { return }
         min = number
         number = (number + max)/2
@@ -39,7 +37,6 @@ class ThirdViewController: UIViewController {
         round += 1
         rounds.text = "Round № \(round)"
     }
-    
     
     @IBAction func lessButton(_ sender: UIButton) {
         guard antiCheat() < number else { return }

@@ -11,7 +11,6 @@ class FifthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         gameResult.text = computerRounds < playerRounds ?  "You Lose" :  computerRounds > playerRounds ? "You Win" : "It's a draw"
     }
     
