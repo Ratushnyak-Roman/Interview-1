@@ -49,6 +49,17 @@ class ThirdViewController: UIViewController {
         round += 1
         rounds.text = "Round № \(round)"
     }
+ 
+    @IBAction func equalsButton(_ sender: UIButton) {
+        guard antiCheat() == number else { return }
+        performSegue(withIdentifier: "playerTurn", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dvc = segue.destination as? FourthViewController else { return }
+        dvc.computerRounds = round
+    }
+    
     
 }
 

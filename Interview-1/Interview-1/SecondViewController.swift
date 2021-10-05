@@ -21,10 +21,18 @@ class SecondViewController: UIViewController {
         guessButton.isEnabled = !playerNumber.isEmpty
     }
     
+
     @IBOutlet weak var numberTF: UITextField!
     
     @IBOutlet weak var guessButton: UIButton!
     
+    
+    
+    @IBAction func guessButton(_ sender: UIButton) {
+        let x = (numberTF.text! as NSString).integerValue
+        guard x >= 0 && x <= 100 else { return }
+        performSegue(withIdentifier: "computerTurn", sender: nil)
+    }
     
     @IBAction func numberTFChanged(_ sender: UITextField) {
         updateNumberTF ()
@@ -33,5 +41,9 @@ class SecondViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let dvc = segue.destination as? ThirdViewController else { return }
         dvc.playerNumber = numberTF.text
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="34" id="mYz-oH-NaJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="numberTFChanged:" destination="Pkg-gm-jMJ" eventType="editingChanged" id="I38-9v-380"/>
                                 </connections>
@@ -95,7 +95,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UgS-XE-sNV" kind="presentation" id="aqy-Dw-6Lz"/>
+                                    <action selector="guessButton:" destination="Pkg-gm-jMJ" eventType="touchUpInside" id="eJv-UQ-yO1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,6 +114,8 @@
                     <connections>
                         <outlet property="NumberTF" destination="b5b-Qj-rE7" id="OHA-Ha-fqh"/>
                         <outlet property="guessButton" destination="v6U-AU-sae" id="s3n-xA-hHy"/>
+                        <outlet property="numberTF" destination="b5b-Qj-rE7" id="to4-tp-bOi"/>
+                        <segue destination="UgS-XE-sNV" kind="presentation" identifier="computerTurn" id="a4Z-KX-h2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sko-ld-MBE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -155,7 +157,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="="/>
                                         <connections>
-                                            <segue destination="3gz-bt-9nd" kind="presentation" id="2YR-B5-Hs5"/>
+                                            <action selector="equalsButton:" destination="UgS-XE-sNV" eventType="touchUpInside" id="JE7-v3-yLf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuQ-ct-fa2">
@@ -172,13 +174,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aMv-pB-pvC">
                                 <rect key="frame" x="124.5" y="126" width="165.5" height="70.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Round № 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLO-FV-BUF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round № 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLO-FV-BUF">
                                         <rect key="frame" x="29.5" y="0.0" width="106" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Computer guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IF-93-jo8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IF-93-jo8">
                                         <rect key="frame" x="0.0" y="46.5" width="165.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -207,6 +209,7 @@
                     <connections>
                         <outlet property="numberIs" destination="SnL-FI-baT" id="Qcm-Ke-O9m"/>
                         <outlet property="rounds" destination="vLO-FV-BUF" id="IEm-Ir-JuD"/>
+                        <segue destination="3gz-bt-9nd" kind="presentation" identifier="playerTurn" id="s9S-Ta-xgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icb-vd-JOm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -224,13 +227,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bC4-Wv-ZW6">
                                 <rect key="frame" x="152" y="126" width="110.5" height="70.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Round № 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-KY-g6j">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round № 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-KY-g6j">
                                         <rect key="frame" x="2" y="0.0" width="106" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y70-vs-ZNb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You guesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y70-vs-ZNb">
                                         <rect key="frame" x="0.0" y="46.5" width="110.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -247,7 +250,10 @@
                                     <constraint firstAttribute="height" constant="34" id="6Bk-ex-mKJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="numberTFChanged:" destination="3gz-bt-9nd" eventType="editingChanged" id="TZj-6L-q7F"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siz-zz-949">
                                 <rect key="frame" x="162" y="343" width="90" height="24"/>
@@ -270,7 +276,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="THH-es-g7r" kind="presentation" id="isM-Ry-kng"/>
+                                    <action selector="guessButton:" destination="3gz-bt-9nd" eventType="touchUpInside" id="oNY-UD-yQ0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -288,6 +294,13 @@
                             <constraint firstItem="5GS-4G-WXb" firstAttribute="centerY" secondItem="XOs-tB-eyI" secondAttribute="centerY" id="xMZ-JN-YpW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="guessButton" destination="Fhq-N7-q0I" id="aGa-AV-rav"/>
+                        <outlet property="numberIs" destination="Siz-zz-949" id="XtL-pD-sD5"/>
+                        <outlet property="numberTF" destination="5GS-4G-WXb" id="orN-IY-JNc"/>
+                        <outlet property="rounds" destination="dPw-KY-g6j" id="T3w-Gc-I4y"/>
+                        <segue destination="THH-es-g7r" kind="presentation" identifier="endGame" id="JAc-oN-xRT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLG-E5-dbP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -296,7 +309,6 @@
         <!--Fifth View Controller-->
         <scene sceneID="WD7-zo-msd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7oJ-YK-fOi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="THH-es-g7r" customClass="FifthViewController" customModule="Interview_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HDN-0W-oNB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -331,7 +343,11 @@
                             <constraint firstItem="RcR-ih-yTZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oIn-fP-wft" secondAttribute="bottom" constant="50" id="phK-ks-4Rp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameResult" destination="RcR-ih-yTZ" id="TKQ-5y-Cqi"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7oJ-YK-fOi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2872" y="94"/>
         </scene>
